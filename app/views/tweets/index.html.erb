@@ -1,0 +1,11 @@
+  <%= render 'new' %>
+  
+  <h3> all the tweets</h3>     
+  
+  <% @tweets.each do |t| %>
+  <ul>  
+    <li><%= t.content %></li>
+        <%= t.created_at %>
+        <%#= link_to 'X', tweet_path(tweet), method: :delete %>
+  </ul>
+  <% end %>
