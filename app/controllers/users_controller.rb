@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def followee
+  end
+
+  def follower
+  end
+
 private
 
 def user_params

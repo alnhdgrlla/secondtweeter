@@ -5,4 +5,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update, :create]
   resources :tweets, only: [:index, :create, :destroy]
+  resources :relationships, only: [:index, :create, :destroy]
+
+  resources :users do
+    member do
+      get :followees, :followers
+    end
+  end
 end

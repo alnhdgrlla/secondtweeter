@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
   def index
     @tweet = Tweet.new
-    @tweets = Tweet.all.order("created_at DESC")
+    # @tweets = current_user.feed.order("created_at DESC").limit(10).offset(@tweets*5)
+    @tweets = current_user.feed.order("created_at DESC").paginate(page: params[:page], per_page: 5)
   end
 
   def create

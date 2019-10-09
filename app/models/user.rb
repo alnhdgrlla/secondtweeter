@@ -17,13 +17,30 @@ class User < ApplicationRecord
   end
 
   def follow(user)
-    followees << user
+    active_relationships.create!(followee_id: user.id) if !self.following?(user) && self != user
   end
   
   def unfollow(user)
-    active_relationships.find_by(followee_id: user.id).destroy
+    active_relationships.find_by(followee_id: user).destroy
   end
   
+  def feed
+    # Tweet.where("user_id: id AND active_relationships.followee_id: current_user.id")
+    Tweet.where(user_id: id).or(Tweet.where(user_id: active_relationships.select(:followee_id)))
+
+  end
+
+  def total_tweet
+    Tweet.where(user_id: id).count
+  end
+
+  def total_following
+    Relationship.where(follower_id: id).count
+  end
+
+  def total_follower
+    Relationship.where(followee_id: id).count
+  end
 end
 
 
