@@ -1,13 +1,12 @@
-  <%= render 'new' %>
-  
-  <h3> all the tweets</h3>     
-  
-  <% @tweets.each do |t| %>
-  <ul>  
-    <li><%= t.content %></li> <br>
-        <small><%= t.created_at %></small> <br>
-        <%= link_to t.user.username, t.user %> <br>
-        <%= link_to 'X', tweet_path(t), method: :delete if t.user == current_user%> <br>
-  </ul>
-  <% end %>
-  <%= will_paginate @tweets %>
+<%= render 'new' %>
+
+<h3> all the tweets</h3>     
+<% @tweets.each do |t| %>
+<ul>  
+  <li><%= t.content %></li> <br>
+  <small><%= t.created_at %></small> <br>
+  <%= link_to t.user.username, t.user %> <br>
+  <%= link_to 'X', tweet_path(t), method: :delete if t.user == current_user%> <br>
+</ul>
+<% end %>
+<%= will_paginate @tweets %>
