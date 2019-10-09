@@ -1,3 +1,15 @@
 <h2> User Info </h2>
-<%= @user.username %>
-<%= @user.bio %>
+<%= @user.username %> <br>
+<%= @user.bio %><br>
+<% if @user == current_user %>
+  <%= link_to "Edit", edit_user_path(@user) %><br>
+<% end %>
+
+<h2>User's Tweet</h2>
+<ul>
+  <% @tweets.each do |tweet| %>
+    <li>
+    <%= tweet.content %><br>
+    <small><%= tweet.created_at %></small><br>
+  <% end %>
+</ul>
