@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: :home
-  before_action :authenticate_user!
+  skip_before_action :method_name, raise: false
+  before_action :authenticate_user!, raise: false
 
   def index
     @users = User.all

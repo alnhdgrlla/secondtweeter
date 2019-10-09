@@ -4,8 +4,9 @@
   
   <% @tweets.each do |t| %>
   <ul>  
-    <li><%= t.content %></li>
-        <%= t.created_at %>
-        <%#= link_to 'X', tweet_path(tweet), method: :delete %>
+    <li><%= t.content %></li> <br>
+        <small><%= t.created_at %></small> <br>
+        <%= link_to t.user.username, t.user %> <br>
+        <%= link_to 'X', tweet_path(t), method: :delete %> <br>
   </ul>
   <% end %>
