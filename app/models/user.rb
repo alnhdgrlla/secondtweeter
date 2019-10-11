@@ -27,7 +27,6 @@ class User < ApplicationRecord
   def feed
     # Tweet.where("user_id: id AND active_relationships.followee_id: current_user.id")
     Tweet.where(user_id: id).or(Tweet.where(user_id: active_relationships.select(:followee_id)))
-
   end
 
   def total_tweet
