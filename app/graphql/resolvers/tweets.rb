@@ -3,7 +3,7 @@ module Resolvers
     type [Types::TweetType], null: false
 
     def resolve
-      Tweet.all
+      Tweet.where(user_id: context[:current_user].id)
     end
   end
 end
