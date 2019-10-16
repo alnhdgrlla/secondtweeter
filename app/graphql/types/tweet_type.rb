@@ -3,5 +3,5 @@ class Types::TweetType < Types::BaseObject
   field :user, Types::UserType, null: false
   field :created_at, Types::DateTimeType, null: false
   field :updated_at, Types::DateTimeType, null: false
-  field :content, String, null: true
+  field :content, String, null: false
 end
