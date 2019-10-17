@@ -16,7 +16,7 @@ module Mutations
           followee: followee
         }
       else
-        put "Following did not finish successfuly. Please try again"
+        ######3
       end
     end
   end

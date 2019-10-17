@@ -9,6 +9,8 @@ module Mutations
       tweet = Tweet.find(tweet_id)
       if  context[:current_user] == tweet.user
         tweet.destroy
+      else
+        ####
       end
     end
   end
