@@ -1,9 +1,9 @@
 class Types::UserType < Types::BaseObject
   field :id, ID, null: false
-  field :username, String, null: false
-  field :bio, String, null: false
-  field :email, String, null: false
-  field :password, String, null: false
+  field :username, String, null: true
+  field :bio, String, null: true
+  field :email, String, null: true
+  field :password, String, null: true
   field :created_at, Types::DateTimeType, null: false
   field :updated_at, Types::DateTimeType, null: false
 end

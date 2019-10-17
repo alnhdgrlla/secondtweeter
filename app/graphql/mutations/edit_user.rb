@@ -1,21 +1,19 @@
 module Mutations
   class EditUser < BaseMutation
 
-    argument :user_id, String, required: true
-    argument :username, String, required: true
-    argument :bio, String, required: true
-    argument :password, String, required: true
+    argument :username, String, required: false
+    argument :bio, String, required: false
+    argument :password, String, required: false
 
     type Types::UserType
     
-    def resolve(user_id:, username:, bio:, password:)
-      user = User.find(user_id)
-      user.update!(username: username, bio: bio, password: password) if user == context[:current_user]
-        {
-          username: username,
-          bio: bio,
-          password: password
-        }
+    def resolve(username: nil, bio: nil, password: nil)
+      user = context[:current_user]
+      info = { username: username, bio: bio, password: password }
+      info.reject!{|key,value| value == nil}
+      if user.update!(info)
+        info
+      end
     end
   end
 end

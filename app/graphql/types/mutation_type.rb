@@ -4,7 +4,7 @@ module Types
     field :signin_user, mutation: Mutations::SignInUser
     field :create_tweet, mutation: Mutations::CreateTweet
     field :create_follow, mutation: Mutations::CreateFollow
-    field :Unfollow, mutation: Mutations::Unfollow
+    field :unfollow, mutation: Mutations::Unfollow
     field :edit_user, mutation: Mutations::EditUser
     field :delete_tweet, mutation: Mutations::DeleteTweet
   end
