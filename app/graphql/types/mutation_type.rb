@@ -5,6 +5,7 @@ module Types
     field :create_tweet, mutation: Mutations::CreateTweet
     field :create_follow, mutation: Mutations::CreateFollow
     field :Unfollow, mutation: Mutations::Unfollow
-    field :edit_info, mutation: Mutations::EditInfo
+    field :edit_user, mutation: Mutations::EditUser
+    field :delete_tweet, mutation: Mutations::DeleteTweet
   end
 end

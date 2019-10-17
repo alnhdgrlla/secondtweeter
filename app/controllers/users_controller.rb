@@ -11,10 +11,14 @@ class UsersController < ApplicationController
     @tweets = Tweet.where(user_id: @user.id)
   end
 
+  # def edit
+  #   if current_user == @user
+  #     @user = User.find(params[:id])
+  #   end
+  # end
+
   def edit
-    if current_user == @user
-      @user = User.find(params[:id])
-    end
+      @user = User.find(params[:id]) if current_user
   end
   
   def update
