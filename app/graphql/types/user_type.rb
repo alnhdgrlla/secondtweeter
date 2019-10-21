@@ -6,4 +6,6 @@ class Types::UserType < Types::BaseObject
   field :password, String, null: true
   field :created_at, Types::DateTimeType, null: false
   field :updated_at, Types::DateTimeType, null: false
+  field :total_following, Integer, null: true
+  field :total_follower, Integer, null: true
 end

@@ -14,11 +14,6 @@ module Resolvers
       else
         c_user.feed
       end
-
-      # tweets  = Tweet.all
-      # tweets = Tweet.where(user_id: c_user.id)
-      #       .or(Tweet.where(user_id: c_user.active_relationships.select(:followee_id)))
-      # tweets = Tweet.where(user_id: user_id) if user_id
     end
   end
 end

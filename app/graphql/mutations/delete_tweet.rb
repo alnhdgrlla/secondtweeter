@@ -19,8 +19,7 @@ module Mutations
 
     field :id, Types::TweetType, null: true
     field :content, Types::TweetType, null: true
-    # type Types::TweetType
-
+    
     def resolve(tweet_id:)
       return GraphQL::ExecutionError.new("This is not your tweet") if !context[:current_user]
       tweet = Tweet.find_by(id:tweet_id)

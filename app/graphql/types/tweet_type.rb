@@ -4,4 +4,5 @@ class Types::TweetType < Types::BaseObject
   field :created_at, Types::DateTimeType, null: false
   field :updated_at, Types::DateTimeType, null: false
   field :content, String, null: false
+  field :total_count, Integer, null: false
 end
