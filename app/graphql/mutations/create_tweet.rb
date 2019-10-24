@@ -13,27 +13,8 @@ module Mutations
       if tweet.save
         tweet
       else
-        puts "Your tweet did not save. Please try again"
+        return GraphQL::ExecutionError.new("Your tweet did not save")
       end
     end
   end
 end
-
-# module Mutations
-#   class CreateTweet < BaseMutation
-
-#     argument :content, String, required: true
-
-#     field :tweet, Types::TweetType, null: false
-
-#     def resolve(content:)
-#       tweet = Tweet.new(
-#         content: content,
-#         user: context[:current_user]
-#       )
-#       if tweet.save
-#         return {tweet: tweet}
-#       end
-#     end
-#   end
-# end

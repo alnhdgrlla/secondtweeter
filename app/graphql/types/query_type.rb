@@ -3,10 +3,10 @@ class Types::QueryType < Types::BaseObject
 # They will be entry points for queries on your schema.
 
 field :tweets, resolver: Resolvers::Tweets
-field :total_tweets_count, resolver: Resolvers::TotalTweetsCount
-field :total_following, resolver: Resolvers::TotalFollowing
-field :total_follower, resolver: Resolvers::TotalFollower
-field :specific_user, resolver: Resolvers::SpecificUser
-field :follower_followee, resolver: Resolvers::FollowerFollowee
+field :user_info, resolver: Resolvers::UserInfo
+# field :total_following, resolver: Resolvers::TotalFollowing
+# field :total_follower, resolver: Resolvers::TotalFollower
+# field :specific_user, resolver: Resolvers::SpecificUser
+# field :follower_followee, resolver: Resolvers::FollowerFollowee
 end
 

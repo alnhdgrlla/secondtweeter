@@ -60,12 +60,12 @@
 
 module Mutations
   class EditUser < BaseMutation
-
     argument :update_args, Types::EditUserInput, required: true
 
     type Types::UserType
     
-    def resolve(update_args: nil)
+    def resolve(tweet_id:, update_args: nil)
+      return GraphQL::ExecutionError.new("Forbidden action")
       user = context[:current_user]
       info = { username: update_args[:username], bio: update_args[:bio], password: update_args[:password] }
       info.reject!{|key,value| value == nil}
