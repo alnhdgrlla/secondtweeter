@@ -19,7 +19,7 @@ module Mutations
 
     field :id, Types::TweetType, null: true
     field :content, Types::TweetType, null: true
-    
+
     def resolve(tweet_id:)
       return GraphQL::ExecutionError.new("This is not your tweet") if !context[:current_user]
       tweet = Tweet.find_by(id:tweet_id)
@@ -30,7 +30,7 @@ module Mutations
           content: tweet
         }
       else
-       return GraphQL::ExecutionError.new("This tweet was already deleted")
+       return GraphQL::ExecutionError.new("This tweet does not exist")
       end
     end
   end

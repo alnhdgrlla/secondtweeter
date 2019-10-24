@@ -46,6 +46,19 @@ class User < ApplicationRecord
   def total_follower
     Relationship.where(followee_id: id).count
   end
+
+  # def following_detail
+  #   self.followings
+  # end
+
+  # def follower_detail
+  #   self.follower
+  # end
+
+  # def follower_followee
+  #   Relationship.where(follower_id: id).or(Relationship.where(followee_id: id))
+  # end
+
 end
 
 
